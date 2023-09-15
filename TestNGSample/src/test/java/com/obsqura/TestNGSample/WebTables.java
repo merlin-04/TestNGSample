@@ -1,6 +1,6 @@
 package com.obsqura.TestNGSample;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -11,20 +11,15 @@ import org.testng.annotations.Test;
 public class WebTables extends Base {
 	@Test
 	public void verifyTheadOfTheTable() {
-		List<String> expectedHead = new ArrayList<String>();
-		expectedHead.add("Name");
-		expectedHead.add("Position");
-		expectedHead.add("Office");
-		expectedHead.add("Age");
-		expectedHead.add("Start date");
-		expectedHead.add("Salary");
+		List<String> expectedHead = Arrays.asList("Name","Position","Office","Age","Start date","Salary");
+		System.out.println(expectedHead);
 		String expectedTableHead = String.join(" ", expectedHead);
 		driver.navigate().to("https://selenium.obsqurazone.com/table-pagination.php");
 		List<WebElement> actualTableHead = driver
 				.findElements(By.xpath("//table[@id='dtBasicExample']//following-sibling::thead"));
 		for (WebElement thead : actualTableHead) {
-			String theadText = thead.getText();
-			Assert.assertEquals(expectedTableHead, theadText, "Actual value and expected value are not same");
+			String actualTheadText = thead.getText();
+			Assert.assertEquals(expectedTableHead, actualTheadText, "Actual value and expected value are not same");
 		}
 	}
 
