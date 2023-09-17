@@ -28,6 +28,7 @@ public class Popup extends Base {
 				WebElement loginButton = driver.findElement(By.xpath(
 						"//form[@id='login_popup_cta_form']//following::div[@aria-label='Accessible login button']"));
 				loginButton.click();
+				driver.close();
 			}
 		}
 	}
