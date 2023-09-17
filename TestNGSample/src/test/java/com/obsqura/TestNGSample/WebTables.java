@@ -12,7 +12,6 @@ public class WebTables extends Base {
 	@Test
 	public void verifyTheadOfTheTable() {
 		List<String> expectedHead = Arrays.asList("Name","Position","Office","Age","Start date","Salary");
-		System.out.println(expectedHead);
 		String expectedTableHead = String.join(" ", expectedHead);
 		driver.navigate().to("https://selenium.obsqurazone.com/table-pagination.php");
 		List<WebElement> actualTableHead = driver
@@ -27,7 +26,6 @@ public class WebTables extends Base {
 	public void verifyNameInTheTable() {
 		String expectedValue = "Ashton Cox";
 		driver.navigate().to("https://selenium.obsqurazone.com/table-pagination.php");
-		System.out.println(expectedValue);
 		List<WebElement> table = driver.findElements(By.xpath("//table[@id='dtBasicExample']"));
 		for (WebElement tableName : table) {
 			String actualValue = tableName.getText();
